@@ -15,7 +15,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "Product_purchased")
+@Table(name = "product_purchased")
 public class ProductPurchased {
 	
 	@Id
@@ -23,7 +23,7 @@ public class ProductPurchased {
 	@JsonIgnore
 	private Long id;
 	
-	private BigDecimal amount;
+	private BigDecimal price;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "product_id")
@@ -40,11 +40,11 @@ public class ProductPurchased {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public BigDecimal getAmount() {
-		return amount;
+	public BigDecimal getPrice() {
+		return price;
 	}
-	public void setAmount(BigDecimal value) {
-		this.amount = value;
+	public void setPrice(BigDecimal value) {
+		this.price = value;
 	}
 	public Product getProduct() {
 		return product;
@@ -66,14 +66,14 @@ public class ProductPurchased {
         ProductPurchased productPurchased = (ProductPurchased) o;
         
         return id.equals(productPurchased.id) && 
-        		amount.equals(productPurchased.amount) && 
+        		price.equals(productPurchased.price) && 
         		order.getId().equals(productPurchased.getOrder().getId()) && 
         		product.getId().equals(productPurchased.getProduct().getId());
     }
 	
     @Override
     public int hashCode() {
-        return Objects.hash(id, amount);
+        return Objects.hash(id, price);
     }
 	
 }

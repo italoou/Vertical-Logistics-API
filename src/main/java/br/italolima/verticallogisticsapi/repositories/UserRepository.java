@@ -14,8 +14,8 @@ public interface UserRepository extends JpaRepository<User, Long>{
 	   @Query("SELECT u FROM User u " +
 	           "JOIN FETCH u.orders o " +
 	           "WHERE (:orderId IS NULL OR o.id = :orderId) " +
-	           "AND (:startDate IS NULL OR o.date >= :startDate) " +
-	           "AND (:endDate IS NULL OR o.date <= :endDate)")
+	           "AND (CAST(:startDate AS LocalDate) IS NULL OR o.date >= :startDate) " +
+	           "AND (CAST(:endDate AS LocalDate) IS NULL OR o.date <= :endDate)")
 	    List<User> findFilteredPurchases(
 	            @Param("orderId") Long orderId,
 	            @Param("startDate") LocalDate startDate,

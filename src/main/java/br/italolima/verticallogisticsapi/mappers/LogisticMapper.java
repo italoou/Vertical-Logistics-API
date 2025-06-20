@@ -87,7 +87,7 @@ public class LogisticMapper {
 
         productPurchase.setOrder(order);
         productPurchase.setProduct(product);
-        productPurchase.setAmount(dto.amount());     
+        productPurchase.setPrice(dto.price());     
         
         order.getProductPurchased().add(productPurchase);
 

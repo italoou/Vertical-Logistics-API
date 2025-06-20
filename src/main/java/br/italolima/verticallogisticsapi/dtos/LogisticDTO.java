@@ -9,7 +9,7 @@ public record LogisticDTO(
 	    String userName,
 	    Long orderId,
 	    Long productId,
-	    BigDecimal amount,
+	    BigDecimal price,
 	    LocalDate date
 	    ) {
 	
@@ -20,10 +20,10 @@ public record LogisticDTO(
             String userName = line.substring(10, 55).trim();
             Long orderId = Long.parseLong(line.substring(55, 65).trim());
             Long productId = Long.parseLong(line.substring(65, 75).trim());
-            BigDecimal amount = new BigDecimal(line.substring(75, 87).trim());
+            BigDecimal price = new BigDecimal(line.substring(75, 87).trim());
             LocalDate date = LocalDate.parse(line.substring(87).trim(), DateTimeFormatter.ofPattern("yyyyMMdd"));
             
-            return new LogisticDTO(userId, userName, orderId, productId, amount, date);
+            return new LogisticDTO(userId, userName, orderId, productId, price, date);
 
 		} catch (Exception e) {
             throw new IllegalArgumentException("There has been a erro on file processing: " + line, e);

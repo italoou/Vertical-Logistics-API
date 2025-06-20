@@ -8,7 +8,7 @@ public record ProductDTO(
 		) {
 	public static ProductDTO toDto(ProductPurchased entity) {
 		
-		return new ProductDTO(entity.getProduct().getId(), entity.getAmount().toString());
+		return new ProductDTO(entity.getProduct().getId(), entity.getPrice().toString());
 
     }
 }

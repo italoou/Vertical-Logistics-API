@@ -8,6 +8,7 @@ import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
@@ -17,7 +18,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "Orders")
+@Table(name = "orders")
 public class Order {
 	
 	@Id
@@ -30,7 +31,7 @@ public class Order {
 	@JsonIgnore
 	private User user;
 	
-	@OneToMany(mappedBy = "order")
+	@OneToMany(mappedBy = "order", fetch = FetchType.LAZY)
 	private List<ProductPurchased> productPurchased = new ArrayList<>();
 
 	public Long getId() {
@@ -41,7 +42,7 @@ public class Order {
 	}
 	
 	public BigDecimal getTotal() {			
-		return this.productPurchased.stream().map(ProductPurchased::getAmount).filter(Objects::nonNull).reduce(BigDecimal.ZERO, BigDecimal::add);
+		return this.productPurchased.stream().map(ProductPurchased::getPrice).filter(Objects::nonNull).reduce(BigDecimal.ZERO, BigDecimal::add);
 	}
 
 	public LocalDate getDate() {

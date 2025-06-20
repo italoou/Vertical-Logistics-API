@@ -40,12 +40,9 @@ public class LogisticService {
 		this.logisticMapper = logisticMapper;
 	}
 	
-//	@Transactional
-	public String uploadFile(MultipartFile file) {
+	public void uploadFile(MultipartFile file) throws Exception {
 		
-		try {
-           
-			BufferedReader reader = new BufferedReader(new InputStreamReader(file.getInputStream()));
+		try (BufferedReader reader = new BufferedReader(new InputStreamReader(file.getInputStream()))){
             
             List<LogisticDTO> purchases = reader.lines().map(LogisticDTO::toDto).collect(Collectors.toList());
             
@@ -56,12 +53,9 @@ public class LogisticService {
             orderRepository.saveAll(logisticData.getOrders());
             productPurchasedRepository.saveAll(logisticData.getProductPurchased());     
    
-            return "File '" + file.getOriginalFilename() + "' sent and processed with success!";
-
         } catch (IOException e) {
-            e.printStackTrace();
-            return "There has been a error on processing file: " + e.getMessage();
-        }
+        	throw new Exception("There has been a error on processing file: " + e.getMessage());
+        } 
         
         
 	}
