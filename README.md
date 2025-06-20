@@ -16,6 +16,13 @@ Dentre as funcionalidade idealizadas estavam
 - processamento e salvamento dos dados (Implementada)
 - Busca de pedidos filtrada (Implementada)
 
+# Melhorias
+Lista de melhorias que poderiam ser aplicadas na API
+- Melhoria do tratamento de erro;
+- Ajustar para lidar com a inserção de multiplos arquivos ou de tentativa de sobrescrita da informação de um arquivo
+- Adicionar Transaction no processo de salvamento das informações no banco de dados
+- Fluxo de autenticação e autorização
+
 # Como executar
 
 ## Requisitos
