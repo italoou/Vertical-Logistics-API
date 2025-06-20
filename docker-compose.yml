@@ -1,14 +1,38 @@
 version: '3.3'
 services:
+  vertical-logistics-api:
+    container_name: vertical-logistics-api
+    image: vertical-logistics-api-image
+    restart: unless-stopped
+    build: .
+    ports:
+      - 8080:8080
+    env_file:
+      - .env
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_NAME}
+      - SPRING_DATASOURCE_USERNAME=${DATABASE_USER}
+      - SPRING_DATASOURCE_PASSWORD=${DATABASE_PASSWORD}
+    networks:
+      - vertical-logistics-network
+    depends_on:
+      - vertical-logistics-postgres
+  
   vertical-logistics-postgres:
-      container_name: vertical-logistics-postgres
-      image: postgres:15.2
-      restart: unless-stopped
-      ports:
-        - 5432:5432
-      env_file:
-        - .env
-      environment:
-        POSTGRES_USER: ${DB_USERNAME}
-        POSTGRES_PASSWORD: ${DB_PASSWORD}
-        POSTGRES_DB: ${DB_DATABASE}
+    container_name: vertical-logistics-postgres
+    image: postgres:15.2
+    restart: unless-stopped
+    ports:
+      - 5432:5432
+    env_file:
+      - .env
+    environment:
+      POSTGRES_USER: ${DATABASE_USER}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+      POSTGRES_DB: ${DATABASE_NAME}
+    networks:
+    - vertical-logistics-network
+
+networks:
+  vertical-logistics-network:
+    driver: bridge
