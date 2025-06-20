@@ -59,13 +59,12 @@ java -jar target/Vertical-Logistics-API-0.0.1-SNAPSHOT.jar
 
 ## Acesso
 
-Após a inicialização dos containers o sistemas estarão disponiveis nas portas padrão, qualquer necessidade de modificação deverá ser replicada no código.
+Após a inicialização dos containers, ou execução do código, a API estará disponivel na porta padrão, qualquer necessidade de modificação deverá ser replicada no código.
 
-- Frontend: http://localhost:80
-- Backend: http://localhost:8030
+- Backend: http://localhost:8080
 
 # Autoria
 
 Esse projeto foi desenvolvido por Ítalo Lima
-- Github: https://italolima.com/
-- WebSite: https://github.com/italoou
+- Github: https://github.com/italoou
+- WebSite: https://italolima.com/
