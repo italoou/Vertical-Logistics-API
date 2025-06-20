@@ -71,6 +71,12 @@ Após a inicialização dos containers, ou execução do código, a API estará 
 
 - Backend: http://localhost:8080
 
+## Rotas
+
+A aplicação possui duas rotas
+- /api/vertical-logistics/v1/logistics/upload (POST): deve ser fornecido o arquivo, a API irá esperar o atributo `file`
+- /api/vertical-logistics/v1/logistics (Get): Pode ser passado filtros para obter um busca mais especifica, sendo eles `orderId` (número inteiro), `startDate` (Data no formato 'yyyy-MM-dd') e `endDate` (Data no formato 'yyyy-MM-dd')
+
 # Autoria
 
 Esse projeto foi desenvolvido por Ítalo Lima
