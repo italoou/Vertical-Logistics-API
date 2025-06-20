@@ -5,8 +5,8 @@ Esse repositório implementa o VerticalLogisticsAPI: API de processamento de arq
 O VerticalLogisticsAPI tem como objetivo possibilitar aos usuários a importação de um arquivo com dados de pedidos realizados por usuários, realizando o processamento do mesmo e disponibilizando as informações via requisição Rest pela propria API.
 
 # Tecnologias
-- Java 17
-- Spring 3.1.3
+- Java 21
+- Spring 3.5.0
 - Postgresql
 - Docker
 
@@ -20,10 +20,10 @@ Dentre as funcionalidade idealizadas estavam
 
 ## Requisitos
 
-- java 17
-- spring 3.1.3
+- java 21
+- spring 3.5.0
 - postgresql
-- docker
+- docker (não obrigatório)
 
 ## Clone o repositório 
 
