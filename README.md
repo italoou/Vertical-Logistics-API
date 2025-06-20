@@ -1,8 +1,8 @@
 # VerticalLogisticsAPI
-Esse repositório implementa o VerticalLogisticsAPI: API de processamento de arquivos e consulta de pedidos, projeto feito com as tecnologias Java, Spring e PostgreSQL
+Esse repositório implementa o VerticalLogisticsAPI: API de processamento de arquivos e consulta de pedidos, projeto feito com as tecnologias Java, Spring e PostgreSQL. A solução segue uma arquitetura em camadas, com a estrutura de pacotes refletindo essa separação de responsabilidades. Isso inclui camadas dedicadas para os controllers (responsáveis pela exposição da API REST), services (onde reside a lógica de negócio), models (representando as entidades de domínio) e repositories (para a persistência dos dados).
 
 # Objetivo
-O VerticalLogisticsAPI tem como objetivo possibilitar aos usuários a importação de um arquivo com dados de pedidos realizados por usuários, realizando o processamento do mesmo e disponibilizando as informações via requisição Rest pela propria API.
+O VerticalLogisticsAPI tem como objetivo possibilitar aos usuários a importação de um arquivo com dados de pedidos realizados por usuários, realizando o processamento do mesmo e disponibilizando as informações via requisição REST pela própria API.
 
 # Tecnologias
 - Java 21
@@ -22,6 +22,7 @@ Lista de melhorias que poderiam ser aplicadas na API
 - Ajustar para lidar com a inserção de multiplos arquivos ou de tentativa de sobrescrita da informação de um arquivo
 - Adicionar Transaction no processo de salvamento das informações no banco de dados
 - Fluxo de autenticação e autorização
+- Implementação de testes unitários
 
 # Como executar
 
